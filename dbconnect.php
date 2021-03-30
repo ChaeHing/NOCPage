@@ -1,6 +1,6 @@
 <?php
 
-	$link=mysqli_connect("localhost","root","noc123!@#", "nocpage");
+	$link=mysqli_connect("localhost","root","solbox", "nocpage");
 
 	mysqli_set_charset($link, 'utf8');
 
