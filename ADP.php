@@ -6,7 +6,7 @@
     <title>NOC Page</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/kfonts2.css" rel="stylesheet">
 
     <style>
@@ -22,9 +22,9 @@
 
   <body>
 
-  <div class="container-fluid">  
-
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid"> 
+ 
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -33,16 +33,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><p class="text-danger">NOC Page</p></a>
+        <a class="navbar-brand" href="#"><p class="text-success">NOC Page</p></a>
       </div>
      
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="Monitoring.php">Monitoring</a></li>
+          <li><a href="Monitoring.php">Monitoring</a></li>
           <li><a href="Neocast.php">Neocast</a></li>
-          <li><a href="ADP.php">ADP</a></li>
+          <<li class="active">><a href="ADP.php">ADP</a></li>          
           <li><a href="Etc.php">Etc</a></li>
+          <li><a href="Ism.php">ISM</a></li>
           <li><a href="Notice.php">Notice</a></li>
           <li><a href="Setting.php">Setting</a></li>
          <!-- <li class="dropdown">
@@ -72,13 +73,46 @@
     </nav>
 
 
+<?php // 페이지 내용 변경 DEVOPS-151 
 
 
+    include("dbconnect.php");
 
-<!-- 코드 추가 -->
+    $sql= "select distinct TITLE from Adp";   // 패널 중복 생성 방지를 위한 TITLE 중복값을 제거
+
+    $result=mysqli_query($link, $sql);
+
+    while($row = mysqli_fetch_array($result)){    // 하나의 TITLE당 하나의 패널을 생성
+  
+
+      $title = $row['TITLE'];
+
+      echo "<div class='col-md-4'>\n";                // 화면을 3분할 
+      echo "<div class='panel panel-info'>\n";     // 패널 생성
+      echo "<div class='panel-heading'>\n";
+      echo "<h2 class='panel-title'>$title</h2>\n";    // 패널 제목을 TITLE으로
+      echo "</div>\n";
+      echo "<div class='panel-body'>\n";
+
+      $sql2= "select * from Adp where TITLE = '$title'"; // 현재 TITLE 값만 질의
+
+      $result2=mysqli_query($link, $sql2);
+
+      while($row2 = mysqli_fetch_array($result2)){  // 같은 TITLE은 하나의 패널에 출력
+
+        $url = $row2['URL'];     //Url
+        $name = $row2['NAME'];   //사이트명
+
+          echo "<a href='$url' target=_blank>$name</a>";  //  Url을 하이퍼링크로 사이트명 출력
+          echo "<br>";     
+      }
+     
+     echo "</div>\n</div>\n</div>\n"; // 패널 닫기
+
+    }
 
 
-
+?>
 
 
 
@@ -93,7 +127,7 @@
 
 ?>
 
-  <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <nav class="navbar navbar-custom navbar-fixed-bottom" role="navigation">
   <center><img src="logo.png" alt="logo"></center>
   </nav>
 

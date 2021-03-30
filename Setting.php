@@ -111,6 +111,7 @@
         <ul class="nav navbar-nav">
           <li><a href="Monitoring.php">Monitoring</a></li>
           <li><a href="Neocast.php">Neocast</a></li>
+          <li><a href="ADP.php">ADP</a></li>
           <li><a href="Etc.php">Etc</a></li>
           <li><a href="Ism.php">ISM</a></li>
           <li><a href="Notice.php">Notice</a></li>
