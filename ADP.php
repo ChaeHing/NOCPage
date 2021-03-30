@@ -6,7 +6,7 @@
     <title>NOC Page</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/kfonts2.css" rel="stylesheet">
 
     <style>
@@ -24,7 +24,7 @@
 
   <div class="container-fluid"> 
  
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -33,7 +33,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><p class="text-success">NOC Page</p></a>
+        <a class="navbar-brand" href="#"><p class="text-danger">NOC Page</p></a>
       </div>
      
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,7 +41,7 @@
         <ul class="nav navbar-nav">
           <li><a href="Monitoring.php">Monitoring</a></li>
           <li><a href="Neocast.php">Neocast</a></li>
-          <<li class="active">><a href="ADP.php">ADP</a></li>          
+          <li class="active"><a href="ADP.php">ADP</a></li>          
           <li><a href="Etc.php">Etc</a></li>
           <li><a href="Ism.php">ISM</a></li>
           <li><a href="Notice.php">Notice</a></li>
@@ -88,7 +88,7 @@
       $title = $row['TITLE'];
 
       echo "<div class='col-md-4'>\n";                // 화면을 3분할 
-      echo "<div class='panel panel-info'>\n";     // 패널 생성
+      echo "<div class='panel panel-default'>\n";     // 패널 생성
       echo "<div class='panel-heading'>\n";
       echo "<h2 class='panel-title'>$title</h2>\n";    // 패널 제목을 TITLE으로
       echo "</div>\n";
@@ -127,7 +127,7 @@
 
 ?>
 
-  <nav class="navbar navbar-custom navbar-fixed-bottom" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
   <center><img src="logo.png" alt="logo"></center>
   </nav>
 
