@@ -1,6 +1,6 @@
 <?php
 
-$filepath = '/var/www/manual/sb20-NOCPage-Manual.docx';// 메뉴얼위치
+$filepath = '/var/www/html/NOCPage-main/NOC+Page.doc';// 메뉴얼위치
 $filesize = filesize($filepath);
 $path_parts = pathinfo($filepath);
 $filename = $path_parts[basename];
